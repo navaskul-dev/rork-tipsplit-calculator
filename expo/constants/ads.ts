@@ -24,13 +24,8 @@ export const ADMOB_INTERSTITIAL_UNIT_ID =
     ? "ca-app-pub-3940256099942544/441146891" // test interstitial (iOS)
     : "ca-app-pub-3940256099942544/1033173712"); // test interstitial (Android)
 
-// AppLovin MAX SDK key (Account > General > Keys in the AppLovin dashboard).
-export const APPLOVIN_SDK_KEY = process.env.EXPO_PUBLIC_APPLOVIN_SDK_KEY ?? "";
-export const APPLOVIN_INTERSTITIAL_UNIT_ID =
-  process.env.EXPO_PUBLIC_APPLOVIN_INTERSTITIAL_UNIT_ID ?? "";
-
 /**
- * Whether the ad SDKs can be activated. AdMob requires its App ID to be
+ * Whether the ad SDK can be activated. AdMob requires its App ID to be
  * present in the native build; without it we keep every SDK call disabled
  * so the app runs clean in Expo Go / web and in builds without ad config.
  */

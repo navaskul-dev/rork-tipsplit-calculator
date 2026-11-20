@@ -3,7 +3,7 @@ import type { ComponentType } from "react";
 /**
  * Generic (web / type-check base) implementation of the ad bridge.
  * On iOS and Android, Metro resolves `ads.native.ts` instead, which holds
- * the real AdMob + AppLovin MAX logic. This file never imports the ad
+ * the real AdMob logic. This file never imports the ad
  * SDKs, so web bundles stay free of native-only modules.
  */
 
@@ -16,7 +16,7 @@ export async function initializeAds(): Promise<boolean> {
   return false;
 }
 
-/** Try to show a ready interstitial (AdMob first, then AppLovin MAX). */
+/** Try to show a ready interstitial (AdMob). */
 export async function tryShowInterstitial(): Promise<boolean> {
   return false;
 }

@@ -591,8 +591,8 @@ export default function SettingsScreen() {
             <View style={[styles.bulletRow, { marginBottom: 0 }]}>
               <Shield size={16} color={colors.accent} style={styles.bulletIcon} />
               <Text style={styles.bulletText}>
-                Ads keep the app free — they are served by Google AdMob and AppLovin,
-                whose own privacy policies apply
+                Ads keep the app free — they are served by Google AdMob,
+                whose own privacy policy applies
               </Text>
             </View>
           </View>
