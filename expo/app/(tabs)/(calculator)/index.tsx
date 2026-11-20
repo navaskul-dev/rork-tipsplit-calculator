@@ -18,6 +18,8 @@ import * as Clipboard from "expo-clipboard";
 import { useTheme } from "@/hooks/useColorScheme";
 import { useHistory } from "@/contexts/HistoryContext";
 import { useSettings } from "@/contexts/SettingsContext";
+import { useAds } from "@/contexts/AdsContext";
+import AdBanner from "@/components/AdBanner";
 import { Calculation } from "@/types/calculation";
 
 const TIP_PRESETS = [10, 15, 18, 20, 25] as const;
@@ -38,6 +40,7 @@ export default function CalculatorScreen() {
   const { colors } = useTheme();
   const { addCalculation } = useHistory();
   const { settings, formatCurrency, applyRounding } = useSettings();
+  const { maybeShowInterstitial } = useAds();
 
   const [billText, setBillText] = useState<string>("");
   const [tipPercent, setTipPercent] = useState<number>(settings.defaultTipPercent);
@@ -195,7 +198,9 @@ export default function CalculatorScreen() {
       Animated.timing(saveAnim, { toValue: 1, duration: 200, useNativeDriver: true }),
       Animated.timing(saveAnim, { toValue: 0, duration: 800, useNativeDriver: true }),
     ]).start();
-  }, [billAmount, tipPercent, taxPercent, numberOfPeople, results, addCalculation, saveAnim]);
+
+    maybeShowInterstitial();
+  }, [billAmount, tipPercent, taxPercent, numberOfPeople, results, addCalculation, saveAnim, maybeShowInterstitial]);
 
   const styles = useMemo(
     () =>
@@ -827,6 +832,8 @@ export default function CalculatorScreen() {
           </View>
         </View>
       </ScrollView>
+
+      <AdBanner />
 
       <Animated.View
         style={[

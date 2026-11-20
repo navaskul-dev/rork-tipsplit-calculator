@@ -15,12 +15,13 @@ import * as Clipboard from "expo-clipboard";
 import { useTheme } from "@/hooks/useColorScheme";
 import { useHistory } from "@/contexts/HistoryContext";
 import { useSettings } from "@/contexts/SettingsContext";
+import AdBanner from "@/components/AdBanner";
 import { Calculation } from "@/types/calculation";
 
 export default function HistoryScreen() {
   const { colors } = useTheme();
   const { calculations, removeCalculation, clearHistory } = useHistory();
-  const { formatCurrency, settings } = useSettings();
+  const { formatCurrency } = useSettings();
 
   const handleClear = useCallback(() => {
     Alert.alert(
@@ -415,6 +416,8 @@ export default function HistoryScreen() {
           ) : null
         }
       />
+
+      <AdBanner />
     </View>
   );
 }

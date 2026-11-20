@@ -10,7 +10,6 @@ import {
 } from "react-native";
 import {
   Shield,
-  Info,
   DollarSign,
   Lock,
   Smartphone,
@@ -571,10 +570,10 @@ export default function SettingsScreen() {
               <Text style={styles.privacyTitle}>Your Privacy Matters</Text>
             </View>
             <Text style={styles.privacyText}>
-              TipSplit is a{" "}
-              <Text style={styles.privacyHighlight}>fully offline app</Text>. No personal
-              data is collected, stored on servers, or transmitted anywhere. Everything stays
-              on your device.
+              TipSplit keeps your data{" "}
+              <Text style={styles.privacyHighlight}>on your device</Text>. Your
+              calculations, history and settings are stored locally and never sent to
+              a server.
             </Text>
             <View style={styles.privacyDivider} />
             <View style={styles.bulletRow}>
@@ -592,7 +591,8 @@ export default function SettingsScreen() {
             <View style={[styles.bulletRow, { marginBottom: 0 }]}>
               <Shield size={16} color={colors.accent} style={styles.bulletIcon} />
               <Text style={styles.bulletText}>
-                No ads, no tracking, no analytics — just a simple, private tool
+                Ads keep the app free — they are served by Google AdMob and AppLovin,
+                whose own privacy policies apply
               </Text>
             </View>
           </View>

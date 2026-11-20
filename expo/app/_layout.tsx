@@ -5,6 +5,7 @@ import React, { useEffect } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { HistoryProvider } from "@/contexts/HistoryContext";
 import { SettingsProvider } from "@/contexts/SettingsContext";
+import { AdsProvider } from "@/contexts/AdsContext";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -28,7 +29,9 @@ export default function RootLayout() {
       <GestureHandlerRootView>
         <SettingsProvider>
           <HistoryProvider>
-            <RootLayoutNav />
+            <AdsProvider>
+              <RootLayoutNav />
+            </AdsProvider>
           </HistoryProvider>
         </SettingsProvider>
       </GestureHandlerRootView>
