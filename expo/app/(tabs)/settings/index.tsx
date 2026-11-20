@@ -98,9 +98,9 @@ export default function SettingsScreen() {
   const handlePrivacyPolicy = useCallback(() => {
     triggerHaptic();
     if (Platform.OS === "web") {
-      window.open("https://rork.app/pa/cz611yqugtxr7rxndz4bx/privacy", "_blank");
+      window.open("https://cz611yqugtxr7rxndz4bx.rork.app/~assets/pa/privacy", "_blank");
     } else {
-      openURL("https://rork.app/pa/cz611yqugtxr7rxndz4bx/privacy");
+      openURL("https://cz611yqugtxr7rxndz4bx.rork.app/~assets/pa/privacy");
     }
   }, []);
 
