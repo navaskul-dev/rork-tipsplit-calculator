@@ -1,28 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import { View } from "react-native";
-import { BannerAd, BannerAdSize } from "react-native-google-mobile-ads";
-import { ADS_ENABLED, ADMOB_BANNER_UNIT_ID } from "@/constants/ads";
+import { AdBannerView } from "@/services/ads/ads";
 
 /**
- * Bottom anchor banner. Renders nothing when ads are disabled
+ * Bottom banner ad. Renders nothing when ads are unavailable
  * (web, Expo Go, or no AdMob App ID configured) or when the ad fails
  * to load, so the layout never shows an empty block.
  */
 export default function AdBanner() {
-  const [failed, setFailed] = useState<boolean>(false);
-
-  if (!ADS_ENABLED || failed) return null;
+  const BannerView = AdBannerView;
+  if (!BannerView) return null;
 
   return (
     <View style={{ marginVertical: 4 }}>
-      <BannerAd
-        unitId={ADMOB_BANNER_UNIT_ID}
-        size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
-        onAdFailedToLoad={(error) => {
-          console.log("[Ads] Banner failed to load:", error?.message);
-          setFailed(true);
-        }}
-      />
+      <BannerView />
     </View>
   );
 }
